@@ -44,7 +44,7 @@
 
   ![workflow details get logs](misc/workflow-details-get-logs.webp)
 
-  Here we can quickly see that it was "Check firmware size" step that failed — it is marked with a red circle with a cross. Specific reason is shown below: Firmware size (18443033) exceeds max size (16187392) — i.e. built firmware is too big for the target device.
+  Here it's immediately obvious that it was "Check firmware size" step that failed — it is marked with a red circle with a cross. Specific reason is shown below: *Firmware size (18,492,849 bytes) exceeds max size (16,187,392 bytes) for your target device* — i.e. built firmware size is too big for the target device.
 
   In case of any error its reason is usually shown at the end of the log, as in the example above. To view full log click on the cog ⚙️ icon in the top right corner → View raw logs. You can also download compressed log archive in the same menu → Download log archive.
 
@@ -60,11 +60,13 @@ To sync your fork with its origin repository, just click "Sync fork" at the top 
 
 ### Advanced usage
 
-You can set the firmware repository, branch, specific tag or commit in [`variables`](variables) file.
+You can set the firmware repository, branch, specific tag or commit in the [`variables`](variables) file.
 
-You can also create a `pre-build.sh` script with any custom commands, which will be executed just before build process. By that time firmware source code is already downloaded, so you can add or change anything in it.
+In the [`variables`](variables) file you can also specify which themes you want to install by uncommenting theme names in the `PADAVAN_THEMES` variable. Themes repository can be set with the `PADAVAN_THEMES_REPO` variable.
 
-You can also create a `post-build.sh` script, which will be executed right after build process.
+You can create a `pre-build.sh` script with any custom commands, which will be executed just before build process. By that time firmware source code is already downloaded, so you can add or change anything in it.
+
+You can create a `post-build.sh` script, which will be executed right after build process.
 
 
 ---
